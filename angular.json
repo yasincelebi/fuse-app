@@ -25,7 +25,12 @@
                         "tsConfig": "tsconfig.app.json",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "src/assets/icons/google",
+                                "output": "icon-library"
+                            }
                         ],
                         "styles": [
                             "src/styles.scss"
