@@ -1,0 +1,193 @@
+.create-contact-container {
+    padding-left: 8px;
+    width: 100%;
+    header {
+        position: sticky;
+        top: 0;
+        transition: box-shadow .1s ease-in-out;
+        width: 100%;
+        z-index: 1;
+        .content-wrapper {
+            padding-top: 24px;
+            background: #fff;
+            .icon-wrapper {
+                position: absolute;
+                cursor: pointer;
+                &:hover {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+            }
+            .content {
+                display: flex;
+                max-width: 1000px;
+                align-items: center;
+                .save-btn {
+                    margin-left: auto;
+                    margin-top: auto;
+                    padding: 0px 24px;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #fff;
+                    background: rgba(26, 115, 232, 0.9);
+                    border: none;
+                    cursor: pointer;
+                    height: 36px;
+                    display: flex;
+                    align-items: center;
+                    opacity: 0.5;
+                    user-select: none;
+                    pointer-events: none;
+                    &.edit {
+                        user-select: auto;
+                        pointer-events: auto;
+                        opacity: 1;
+
+                    }
+
+                    &:hover {
+                        background:  rgba(26, 115, 232, 1);
+                    }
+                    &.active {
+                        opacity: 1;
+                        user-select: auto;
+                        pointer-events: auto;
+                    }
+                }
+                .photo-and-label {
+                    align-items: center;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    padding: 0 0 8px 70px;
+                    .photo-wrapper {
+                        position: relative;
+                        .icon-wrapper {
+                            align-items: center;
+                            display: flex;
+                            height: 100%;
+                            justify-content: center;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            .icon{
+                                background: rgba(0,0,0,0.4);
+                                border-radius: 50%;
+                                color: white;
+                                cursor: pointer;
+                                height: 48px;
+                                width: 48px;
+                                padding: 12px;
+                            }
+                        }
+                        img {
+                            width: 162px;
+                            height: 162px;
+                            border-radius: 50%;
+                        }
+                    }
+                    .personal {
+                        margin-left: 34px;
+                        font-size: 22px;
+
+                    }
+                    .label-wrapper {
+                        margin-top: 15px;
+
+                        gap: 10px;
+                        display: flex;
+                        .label {
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 50%;
+                            border: 1px solid rgba(0, 0, 0, 0.2);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #1a73e8;
+                            cursor: pointer;
+                            mat-icon {
+
+                                height: 20px;
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                svg {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                            }
+                        }
+                        .label-menu {
+                            max-width: 200px;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .card {
+        margin-left: 78px;
+        margin-top: 100px;
+        width: 520px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        min-height: 100px;
+        padding: 15px;
+        .title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        padding-left: 42px;
+        padding-top: 42px;
+
+
+        .section {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: flex-start;
+        .icon {
+            margin-top: 20px;
+            width: 60px;
+            margin-left: 25px;
+        }
+        }
+
+        .form-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            mat-form-field { .mat-form-field-flex {
+                background: transparent !important;
+            }
+             &.mat-focused .mat-form-field-ripple, .mat-form-field-ripple {
+                background: #1a73e8;
+             }
+              &.mat-form-field-appearance-fill .mat-form-field-infix {
+                  padding: 0 0.25em 0.25em 0 ;
+              }
+        }
+        }
+    }
+}
+
+.no-label.mat-menu-item{
+    line-height:26px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 62px;
+}
+
+.mat-menu-item:not(.no-label){
+
+    display: flex;
+    align-items: center;
+}
