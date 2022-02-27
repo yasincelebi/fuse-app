@@ -26,6 +26,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
     selectedLanguage: any;
     userStatusOptions: any[];
 
+
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -106,6 +107,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
                 this.horizontalNavbar = settings.layout.navbar.position === 'top';
                 this.rightNavbar = settings.layout.navbar.position === 'right';
                 this.hiddenNavbar = settings.layout.navbar.hidden === true;
+
             });
 
         // Set the selected language from default languages
@@ -138,7 +140,9 @@ export class ToolbarComponent implements OnInit, OnDestroy
 
     toggleSidebarFolded(): void
     {
+        this._fuseSidebarService.getSidebar('navbar').toggleOpen();
         this._fuseSidebarService.getSidebar('navbar').toggleFold();
+
     }
 
     /**

@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { navigation } from 'app/navigation/navigation';
+import {MediaObserver} from "@angular/flex-layout";
 
 @Component({
     selector     : 'vertical-layout-1',
@@ -23,9 +24,11 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
      * Constructor
      *
      * @param {FuseConfigService} _fuseConfigService
+     * @param _mediaObserver
      */
     constructor(
-        private _fuseConfigService: FuseConfigService
+        private _fuseConfigService: FuseConfigService,
+
     )
     {
         // Set the defaults
@@ -49,7 +52,10 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
                 this.fuseConfig = config;
+                console.log(config)
             });
+
+
     }
 
     /**

@@ -5,6 +5,7 @@ toolbar {
     display: flex;
     flex: 0 0 auto;
     z-index: 4;
+    padding: 8px;
 
     &.below {
         z-index: 2;
@@ -14,6 +15,7 @@ toolbar {
         position: relative;
         background: inherit !important;
         color: inherit !important;
+        box-shadow: none !important;
     }
 
     .logo {
@@ -37,10 +39,48 @@ toolbar {
             height: 56px;
         }
     }
+    .left-header {
+        min-width: 268px;
+        display: flex;
+        align-items: center;
+        flex: 1 0 auto;
+    }
 
     .navbar-toggle-button {
         min-width: 56px;
         height: 56px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        .mat-icon {
+            height:24px !important;
+            width:24px !important;
+            font-size:24px !important;
+
+        }
+    }
+    .contact-icon {
+        padding-right: 4px;
+    }
+    .main-title {
+        padding-left: 4px;
+    }
+    .input-and-buttons {
+
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 1 auto;
+        .buttons {
+            display: flex;
+            align-items: center;
+
+        }
     }
 
     .toolbar-separator {

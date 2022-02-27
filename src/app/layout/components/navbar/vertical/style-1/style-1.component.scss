@@ -2,6 +2,7 @@
 
 fuse-sidebar {
 
+
     &.navbar-fuse-sidebar {
         overflow: hidden;
 
@@ -71,6 +72,7 @@ fuse-sidebar {
                                         border-radius: 20px;
                                         margin: 0 12px;
                                         padding: 0 12px;
+
                                     }
                                 }
                             }
@@ -117,7 +119,7 @@ navbar {
             min-height: 64px;
             max-height: 64px;
             height: 64px;
-            padding: 12px 12px 12px 20px;
+            padding: 0 0 16px 6px;
 
             @include media-breakpoint('xs') {
                 min-height: 56px;
@@ -146,6 +148,45 @@ navbar {
             .buttons {
                 display: flex;
                 align-items: center;
+                margin-top: 5px;
+
+                .button {
+                    display: inline-flex;
+                    align-items: center;
+                    width: auto;
+                    height: 48px;
+                    border-radius: 24px;
+                    padding: 2px 24px;
+                    margin: 0 12px;
+                    appearance: none;
+                    background: white;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        box-shadow: 0 2px 3px 0 rgb(60 64 67 / 30%), 0 6px 10px 4px rgb(60 64 67 / 15%);
+                    }
+
+                    & .plus-icon {
+                        margin-right: 12px;
+                        width: 36px;
+                        height: 36px;
+                        .mat-icon {
+                            width: 36px;
+                            height: 36px;
+                        }
+                    }
+                    & .button-text {
+                        font-size: 17px;
+                        font-weight: 500;
+                        color: #3c4043;
+                    }
+
+
+                }
             }
         }
 
@@ -156,12 +197,55 @@ navbar {
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
 
-            background: linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%),
-            linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%);
+            background: #fff;
 
             background-repeat: no-repeat;
             background-size: 100% 40px, 100% 10px;
             background-attachment: local, scroll;
+
+            .material2 {
+                .mat-divider {
+                    margin: 12px 0;
+                }
+                .nav-item {
+                    .nav-link {
+                        min-width: 260px;
+                        color: #202124 !important;
+                        border-radius: 0 20px 20px 0;
+                        padding: 10px 26px;
+                        background: white;
+                        margin-right: 0;
+                        &.active, &.accent {
+                            background: #e8f0fe !important;
+                        }
+                        &:hover {
+                            background: #f1f3f4;
+                        }
+                        &.active, &.accent {
+                            *{
+                                color: #2962ff !important;
+                            }
+                        }
+                        .mat-icon {
+                            min-width: 24px;
+                            min-height: 24px;
+                            font-size: 24px;
+                            margin-right: 20px;
+                            color: rgba(0, 0, 0, 0.87);
+                            svg {
+                                color: #616161
+                            }
+                        }
+                        .nav-link-title {
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: #202124;
+                            letter-spacing: 0.08rem;
+                        }
+
+                    }
+                }
+            }
 
             .user {
                 position: relative;
@@ -192,7 +276,7 @@ navbar {
 
             .navbar-content {
                 flex: 1 1 auto;
-                padding-top: 32px;
+
             }
         }
     }

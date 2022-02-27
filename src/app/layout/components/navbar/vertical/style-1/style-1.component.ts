@@ -7,6 +7,9 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
+import {NavigationIcons} from '../../../../../navigation/navigation';
 
 @Component({
     selector     : 'navbar-vertical-style-1',
@@ -30,16 +33,29 @@ export class NavbarVerticalStyle1Component implements OnInit, OnDestroy
      * @param {FuseNavigationService} _fuseNavigationService
      * @param {FuseSidebarService} _fuseSidebarService
      * @param {Router} _router
+     * @param {MatIconRegistry} iconRegistry
+     * @param {DomSanitizer} sanitizer
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _fuseNavigationService: FuseNavigationService,
         private _fuseSidebarService: FuseSidebarService,
-        private _router: Router
+        private _router: Router,
+        private iconRegistry: MatIconRegistry,
+        private sanitizer: DomSanitizer
     )
     {
         // Set the private defaults
         this._unsubscribeAll = new Subject();
+        /*this.iconRegistry.addSvgIcon(
+            'google-plus-icon',
+            sanitizer.bypassSecurityTrustResourceUrl('assets/icons/google/plus.svg'));*/
+
+    }
+
+
+    setIcons(): void {
+
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -90,6 +106,7 @@ export class NavbarVerticalStyle1Component implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
+        this._fuseNavigationService.removeNavigationItem('custom-function');
         this._router.events
             .pipe(
                 filter((event) => event instanceof NavigationEnd),
@@ -149,5 +166,9 @@ export class NavbarVerticalStyle1Component implements OnInit, OnDestroy
     toggleSidebarFolded(): void
     {
         this._fuseSidebarService.getSidebar('navbar').toggleFold();
+    }
+
+    createContact(): void {
+        this._router.navigate(['/new']);
     }
 }

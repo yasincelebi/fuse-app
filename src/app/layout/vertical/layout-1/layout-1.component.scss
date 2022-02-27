@@ -24,6 +24,10 @@ vertical-layout-1 {
             width: 100%;
             min-height: 0;
             min-width: 0;
+            .navbar-fuse-sidebar {
+                box-shadow: none;
+            }
+
 
             // Container 2
             > .container {

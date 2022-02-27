@@ -4,21 +4,27 @@
 
         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
 
-            <button mat-icon-button class="navbar-toggle-button"
-                    *ngIf="!hiddenNavbar && !rightNavbar" (click)="toggleSidebarFolded()" >
-                <mat-icon class="secondary-text">menu</mat-icon>
-            </button>
+            <div class="left-header">
+                <button mat-icon-button class="navbar-toggle-button"
+                        *ngIf="!hiddenNavbar && !rightNavbar" (click)="toggleSidebarFolded()" >
+                    <mat-icon class="color-black">menu</mat-icon>
+                </button>
+                <img [src]="'icon-library/contacts.png'" alt="" width="50" height="40" class="contact-icon">
 
-            <div class="toolbar-separator" *ngIf="!hiddenNavbar && !rightNavbar" fxHide.gt-md></div>
-
-            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="horizontalNavbar">
-                <div class="logo ml-16">
-                    <img class="logo-icon" src="assets/images/logos/fuse.svg">
-                </div>
+                <div class="toolbar-separator" *ngIf="!hiddenNavbar && !rightNavbar" fxHide.gt-md></div>
+                <div class="font-size-22 main-title">Kişiler</div>
             </div>
 
-            <div class="px-8 px-md-16">
-                <fuse-shortcuts [navigation]="navigation"></fuse-shortcuts>
+
+
+
+
+            <div class="input-and-buttons">
+                <input type="text" name="" id="">
+                <div class="buttons">
+                    <div>buton</div>
+                    <div>buton</div>
+                </div>
             </div>
 
         </div>
@@ -44,6 +50,7 @@
                 <button mat-menu-item class="">
                     <mat-icon>mail</mat-icon>
                     <span>Inbox</span>
+
                 </button>
 
                 <button mat-menu-item class="">
