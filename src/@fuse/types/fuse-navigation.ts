@@ -1,7 +1,7 @@
 export interface FuseNavigationItem
 {
     id: string;
-    title: string;
+    title?: string;
     type: 'item' | 'group' | 'collapsable';
     translate?: string;
     icon?: string;
@@ -12,6 +12,7 @@ export interface FuseNavigationItem
     externalUrl?: boolean;
     openInNewTab?: boolean;
     function?: any;
+    showDividerAfter?: boolean;
     badge?: {
         title?: string;
         translate?: string;

@@ -12,16 +12,20 @@ import { FuseNavVerticalCollapsableComponent } from './vertical/collapsable/coll
 import { FuseNavVerticalGroupComponent } from './vertical/group/group.component';
 import { FuseNavHorizontalItemComponent } from './horizontal/item/item.component';
 import { FuseNavHorizontalCollapsableComponent } from './horizontal/collapsable/collapsable.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {FuseDirectivesModule} from '../../directives/directives';
 
 @NgModule({
-    imports     : [
+    imports: [
         CommonModule,
         RouterModule,
 
         MatIconModule,
         MatRippleModule,
 
-        TranslateModule.forChild()
+        TranslateModule.forChild(),
+        MatDividerModule,
+        FuseDirectivesModule
     ],
     exports     : [
         FuseNavigationComponent

@@ -3,12 +3,15 @@
     <!-- Vertical Navigation Layout -->
     <ng-container *ngIf="layout === 'vertical'">
 
-        <ng-container *ngFor="let item of navigation">
+        <ng-container *ngFor="let item of navigation; let i = index">
 
             <fuse-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></fuse-nav-vertical-group>
             <fuse-nav-vertical-collapsable *ngIf="item.type=='collapsable'"
                                            [item]="item"></fuse-nav-vertical-collapsable>
             <fuse-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></fuse-nav-vertical-item>
+            <!-- show divider if index 3 || 5 || 8 || 10-->
+
+            <mat-divider *ngIf="item.showDividerAfter"></mat-divider>
 
         </ng-container>
 

@@ -11,9 +11,11 @@ import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
-import { navigation } from 'app/navigation/navigation';
+import {navigation, NavigationIcons} from 'app/navigation/navigation';
 import { locale as navigationEnglish } from 'app/navigation/i18n/en';
 import { locale as navigationTurkish } from 'app/navigation/i18n/tr';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
     selector   : 'app',
@@ -39,6 +41,8 @@ export class AppComponent implements OnInit, OnDestroy
      * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
      * @param {Platform} _platform
      * @param {TranslateService} _translateService
+     * @param {MatIconRegistry} iconRegistry
+     * @param {DomSanitizer} sanitizer
      */
     constructor(
         @Inject(DOCUMENT) private document: any,
@@ -48,9 +52,16 @@ export class AppComponent implements OnInit, OnDestroy
         private _fuseSplashScreenService: FuseSplashScreenService,
         private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _translateService: TranslateService,
-        private _platform: Platform
+        private _platform: Platform,
+        private iconRegistry: MatIconRegistry,
+        private sanitizer: DomSanitizer
     )
     {
+        for (const icon of NavigationIcons) {
+            this.iconRegistry.addSvgIcon(
+                icon.name,
+                this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/google/' + icon.path));
+        }
         // Get default navigation
         this.navigation = navigation;
 
@@ -142,6 +153,7 @@ export class AppComponent implements OnInit, OnDestroy
                 }
 
                 // Color theme - Use normal for loop for IE11 compatibility
+                // tslint:disable-next-line:prefer-for-of
                 for ( let i = 0; i < this.document.body.classList.length; i++ )
                 {
                     const className = this.document.body.classList[i];
