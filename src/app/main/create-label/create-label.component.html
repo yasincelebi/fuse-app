@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Create Label</h1>
+<div mat-dialog-content>
+    <form [formGroup]="labelForm">
+        <mat-form-field class="label-form-input" >
+            <input required matInput [(ngModel)]="data.label" formControlName="label">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions fxLayoutAlign="flex-end center">
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button (click)="save()">Save</button>
+</div>
