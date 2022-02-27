@@ -17,23 +17,35 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
+import { CreateContactComponent } from './main/create-contact/create-contact.component';
+import {TooltipModule} from '@swimlane/ngx-charts';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import { CreateLabelComponent } from './main/create-label/create-label.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatChipsModule} from '@angular/material/chips';
 
 const appRoutes: Routes = [
     {
         path      : '**',
         redirectTo: 'sample'
-    }
+    },
+
 ];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        CreateContactComponent,
+        CreateLabelComponent
     ],
-    imports     : [
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+        RouterModule.forRoot(appRoutes, {relativeLinkResolution: 'legacy'}),
 
         TranslateModule.forRoot(),
 
@@ -53,7 +65,14 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
-        SampleModule
+        SampleModule,
+        TooltipModule,
+        MatTooltipModule,
+        MatInputModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatDialogModule,
+        MatChipsModule
     ],
     bootstrap   : [
         AppComponent
